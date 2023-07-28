@@ -97,7 +97,7 @@
                                 <div class="favourit">
                                     <i class="fa-solid fa-heart"></i>
                                 </div>
-                                <div class="view" onclick="displayPro()">
+                                <div class="view" onclick="displayPro(1)">
                                     <i class="fa-solid fa-eye"></i>
                                 </div>
                                 <div class="details">
@@ -127,7 +127,7 @@
                                 <div class="favourit">
                                     <i class="fa-solid fa-heart"></i>
                                 </div>
-                                <div class="view">
+                                <div class="view" onclick="displayPro(2)">
                                     <i class="fa-solid fa-eye"></i>
                                 </div>
                                 <div class="details">
@@ -157,7 +157,7 @@
                                 <div class="favourit">
                                     <i class="fa-solid fa-heart"></i>
                                 </div>
-                                <div class="view">
+                                <div class="view" onclick="displayPro(3)">
                                     <i class="fa-solid fa-eye"></i>
                                 </div>
                                 <div class="details">
@@ -187,7 +187,7 @@
                                 <div class="favourit">
                                     <i class="fa-solid fa-heart"></i>
                                 </div>
-                                <div class="view">
+                                <div class="view" onclick="displayPro(4)">
                                     <i class="fa-solid fa-eye"></i>
                                 </div>
                                 <div class="details">
@@ -217,7 +217,7 @@
                                 <div class="favourit">
                                     <i class="fa-solid fa-heart"></i>
                                 </div>
-                                <div class="view">
+                                <div class="view" onclick="displayPro(5)">
                                     <i class="fa-solid fa-eye"></i>
                                 </div>
                                 <div class="details">
@@ -251,6 +251,7 @@
 
             <div class="products mb-5">
                 <div class="row">
+
                     <div class="col-lg-3">
                         <div class="item">
                             <div class="imgs">
@@ -284,7 +285,45 @@
                                 <h3>iPhone 9</h3>
                                 <p class="w-100">Lorem ipsum dolor sit amet elit. Sed consectetur adipisicing obcaecati minus beatae dicta tempora harum?</p>
                                 <h4>$549 <span>$600</span></h4> 
-                                <a href="">Add To Cart</a>
+                                <a id="111" class="addPro">Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="item">
+                            <div class="imgs">
+                                <img class="thumbnail w-100" src="https://i.dummyjson.com/data/products/1/thumbnail.jpg">
+                                <div class="others">
+                                    <div class="favourit">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </div>
+                                    <div class="view">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </div>
+                                    <div class="details">
+                                        <i class="fa-solid fa-share"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="otherImgs">
+                                <img class="crntImg" src="https://i.dummyjson.com/data/products/1/1.jpg">
+                                <img class="crntImg" src="https://i.dummyjson.com/data/products/1/2.jpg">
+                                <img class="crntImg" src="https://i.dummyjson.com/data/products/1/3.jpg">
+                                <img class="crntImg" src="https://i.dummyjson.com/data/products/1/4.jpg">
+                                <img class="crntImg" src="https://i.dummyjson.com/data/products/1/thumbnail.jpg">
+                            </div> -->
+                            <div class="contnt">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i> 
+                                <span> (250 Reviews)</span>
+                                <h3>iPhone 9</h3>
+                                <p class="w-100">Lorem ipsum dolor sit amet elit. Sed consectetur adipisicing obcaecati minus beatae dicta tempora harum?</p>
+                                <h4>$549 <span>$600</span></h4> 
+                                <a id="222" class="addPro">Add To Cart</a>
                             </div>
                         </div>
                     </div>
@@ -301,7 +340,9 @@
             <i class="fa-solid fa-xmark"></i>
         </div>
         <div class="container">
-            <div class="row">
+            <div id="popRow" class="row">
+
+
                 <div class="col-lg-6">
                     <div class="text-center">
                         <div class="popImage">
@@ -321,22 +362,30 @@
                     <div class="pro-info">
                         <h2><strong><span class="h1 details-title">iPhone 9 </span> ( <span class="details-category">smartphones</span> -  <span class="details-brand">Apple</span> )</strong></h2>
                         <p class="details-description">An apple mobile which is nothing like apple</p>
-                        <p><strong>Discount :</strong> <span class="details-discountPercentage">12.96</span> %</p>
-                        <p><strong>Rating :</strong> <span class="details-rating"></span> <i *ngFor="let item of ratingArr" class="fa-solid fa-star mx-2"></i></p>
-                        <p><strong>Price :</strong> <span class="details-priceDis">477.85</span> $ Instead Of 
-                            <span class="pricRed mx-1 details-price">549</span> $
+                        <p><strong>Discount :</strong> <span>12.96</span> %</p>
+                        <p><strong>Rating :</strong>
+                            <i class="fa-solid fa-star mx-2"></i>
+                            <i class="fa-solid fa-star mx-2"></i>
+                            <i class="fa-solid fa-star mx-2"></i>
+                            <i class="fa-solid fa-star mx-2"></i>
+                            <i class="fa-regular fa-star"></i>
                         </p>
-                        <p><strong><samp  class="details-stock">94</samp> Pieces In Stock</strong></p>
+                        <p><strong>Price :</strong> <span>477.85</span> $ Instead Of 
+                            <span class="pricDiscount mx-1 ">549</span> $
+                        </p>
+                        <p><strong><samp>94</samp> Pieces In Stock</strong></p>
                         
-                        <div class="clicked d-flex justify-content-between">
-                            <button class="py-1 mt-1 mb-3">Add To Cart</button>
-                            
-                            <div>
-                                <i class="fa-solid fa-heart icon"></i>
+                        <div class="d-flex justify-content-between">
+                            <a href="" class="py-1 mt-1 mb-3">Add To Cart</a>
+
+                            <div class="iconFav">
+                                <i class="fa-solid fa-heart"></i>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </div>

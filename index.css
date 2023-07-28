@@ -389,14 +389,14 @@ header .menu .menu-list .list a:hover {
 }
 
 .popUp {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.9);
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 99;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -418,7 +418,7 @@ header .menu .menu-list .list a:hover {
   color: var(--orange);
 }
 .popUp .popImage img {
-  border: solid 1px var(--white-color);
+  border: solid 1px var(--orange);
   border-radius: 10px;
   width: 500px;
   height: 300px;
@@ -437,6 +437,9 @@ header .menu .menu-list .list a:hover {
   border-radius: 10px;
 }
 .popUp .pro-info .details-title {
+  color: var(--orange);
+}
+.popUp .pro-info .details-description {
   color: var(--orange);
 }
 .popUp .pro-info p {
@@ -458,6 +461,25 @@ header .menu .menu-list .list a:hover {
   border-radius: 10px;
   letter-spacing: 0;
 }
+.popUp .pro-info p .pricDiscount {
+  color: var(--orange);
+  font-size: 1.3rem;
+  position: relative;
+}
+.popUp .pro-info p .pricDiscount::after {
+  content: "";
+  background-color: var(--white-color);
+  height: 2px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  rotate: -8deg;
+}
+.popUp .pro-info p i {
+  color: var(--orange);
+}
 .popUp .pro-info strong {
   letter-spacing: 4px;
   font-size: 1.5rem;
@@ -465,6 +487,43 @@ header .menu .menu-list .list a:hover {
 }
 .popUp .pro-info strong span {
   font-weight: bolder;
+}
+.popUp .pro-info a {
+  text-decoration: none;
+  color: var(--black-color);
+  background-color: rgb(201, 201, 201);
+  padding: 7px 25px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  transition: 0.3s ease;
+}
+.popUp .pro-info a:hover {
+  cursor: pointer;
+  background-color: var(--orange);
+  color: var(--white-color);
+}
+.popUp .pro-info .iconFav {
+  background-color: rgb(201, 201, 201);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  transition: 0.3s ease;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.popUp .pro-info .iconFav i {
+  font-size: 1.7rem;
+  color: var(--black-color);
+  transition: 0.3s ease;
+}
+.popUp .pro-info .iconFav:hover {
+  background-color: var(--orange);
+}
+.popUp .pro-info .iconFav:hover i {
+  color: var(--white-color);
 }
 
 @keyframes anime {

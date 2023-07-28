@@ -146,11 +146,82 @@ $.ajax({
 //  getData()
 
 var popUp = document.querySelector('.popUp')
-function displayPro(){
+
+
+async function displayPro(id){
     // popUp.style.display = 'block'
     $('.popUp').slideDown((500))
     $('.popUp').css('display','flex')
 
+    var apiRes = await fetch(`https://dummyjson.com/products/${id}`);
+    var product = await apiRes.json();
+    console.log(product)
+    // data = await finalRes.products
+    // console.log(data)
+
+    var subImages =  ``
+     for(var i=0; i<product.images.length; i++){
+        subImages += `
+        <img class="crntImg" src="${product.images[i]}">
+        `
+    }
+
+    var stars =  ``
+     for(var i=0; i<product.rating-1; i++){
+        stars += `
+        <i class="fa-solid fa-star mx-1"></i>
+        `
+    }
+
+    // <img class="crntImg" src="${product.images[0]}">
+    // <img class="crntImg" src="${product.images[1]?product.images[1]:product.images[0]}">
+    // <img class="crntImg" src="${product.images[2]?product.images[2]:product.images[0]}">
+    // <img class="crntImg" src="${product.images[3]?product.images[3]:product.images[0]}">
+    // <img class="crntImg" src="${product.images[4]?product.images[4]:product.images[0]}"></img>
+
+    var proHtml = `
+                    
+    <div class="col-lg-6">
+        <div class="text-center">
+            <div class="popImage">
+                <img id="proThumbnail" src="${product.thumbnail}">
+            </div>
+            <div id="popImgList" class="popImgList">
+                ${subImages}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 mt-4">
+        <div class="pro-info">
+            <h2><strong><span class="h1 details-title">${product.title} </span> <br/> ( <span class="details-category">${product.category} </span> -  <span class="details-brand">${product.brand}</span> )</strong></h2>
+            <p class="details-description">${product.description}</p>
+            <p><strong>Discount :</strong> <span>12.96</span> %</p>
+            <p><strong>Rating : </strong> 
+                <span class="mx-1">${product.rating}</span>
+                ${stars}
+                <i class="fa-regular fa-star"></i>
+            </p>
+            <p><strong>Price :</strong> <span>${product.price - 50}</span> $ Instead Of 
+                <span class="pricDiscount mx-1 ">${product.price}</span> $
+            </p>
+            <p><strong><samp>${product.stock}</samp> Pieces In Stock</strong></p>
+            
+            <div class="d-flex justify-content-between">
+                <a class="py-1 mt-1 mb-3">Add To Cart</a>
+
+                <div class="iconFav">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    `
+    document.getElementById('popRow').innerHTML = proHtml
+
+    slideImages()
 }
 
 function hidePro(){
@@ -161,14 +232,65 @@ function hidePro(){
 
 
 
+function slideImages(){
 
-var crntImgList = document.querySelectorAll('.crntImg')
-var thumbnail = document.getElementById('proThumbnail')
-
-for(var i=0; i<crntImgList.length; i++){
-
-    crntImgList[i].addEventListener('click', function(e){
-        var imgSrc = e.target.getAttribute('src')
-        thumbnail.setAttribute('src', imgSrc)       
-    })
+    var crntImgList = document.querySelectorAll('.crntImg')
+    var thumbnail = document.getElementById('proThumbnail')
+    
+    for(var i=0; i<crntImgList.length; i++){
+    
+        crntImgList[i].addEventListener('click', function(e){
+            var imgSrc = e.target.getAttribute('src')
+            thumbnail.setAttribute('src', imgSrc)       
+        })
+    }
 }
+
+function x(event){
+    console.log(event.target.id)
+}
+
+// addBtn.addEventListener('click',function(){
+//     console.log('hello')
+// })
+// localStorage.removeItem('cartIds')
+var arrCartIds = []
+if(localStorage.getItem('cartIds') != null){
+    var arr = localStorage.getItem('cartIds')
+    arrCartIds = JSON.parse(arr)
+    // console.log(arrCartIds)
+}else{
+    arrCartIds = []
+}
+function sendIdToCart(){
+    var addBtn = document.querySelectorAll('.addPro')
+    for(var i=0; i<addBtn.length; i++){
+        
+        // console.log(addBtn[i])
+        addBtn[i].addEventListener('click', function(e){
+            var productsId = e.target.id
+
+            if(arrCartIds.length == null){
+                for(var i=0; i<arrCartIds.length; i++){
+                    // if(productsId == arrCartIds[i]){
+                    //     console.log('mawgood')
+                    // }else{
+                        
+                    //     arrCartIds.push(productsId)
+                    //     localStorage.setItem('cartIds', JSON.stringify(arrCartIds))
+                    // }
+                    // console.log(arrCartIds.length) 
+                    console.log('zerooooo') 
+                }
+            }else{
+                console.log('mesh zero')
+            }
+
+            // console.log(arrCartIds)
+            // var imgSrc = e.target.getAttribute('src')
+            // thumbnail.setAttribute('src', imgSrc)  
+        })
+    }
+
+}
+sendIdToCart()

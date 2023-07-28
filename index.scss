@@ -413,14 +413,15 @@ header{
 }
 
 .popUp{
-    background-color: rgba(0, 0, 0, 0.5);
+    // background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.9);
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 99;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     .popX{
@@ -443,7 +444,7 @@ header{
 
     .popImage{
         img{
-            border: solid 1px var(--white-color);
+            border: solid 1px var(--orange);
             border-radius: 10px;
             width: 500px;
             height: 300px;
@@ -467,6 +468,9 @@ header{
         .details-title{
             color: var(--orange);
         }
+        .details-description{
+            color: var(--orange);
+        }
                 
         p{
             color: var(--white-color);
@@ -486,6 +490,25 @@ header{
                 border-radius: 10px;
                 letter-spacing: 0;
             }
+            .pricDiscount{
+                color: var(--orange);
+                font-size: 1.3rem;
+                position: relative;
+                &::after{
+                    content: '';
+                    background-color: var(--white-color);
+                    height: 2px;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    rotate: -8deg;
+                }
+            }
+            i{
+                color: var(--orange);
+            }
         }
         strong{
             letter-spacing: 4px;
@@ -493,6 +516,44 @@ header{
             color: var(--white-color);
             span{
                 font-weight: bolder;
+            }
+        }
+        a{
+            text-decoration: none;
+            color: var(--black-color);
+            background-color: rgb(201, 201, 201);
+            padding: 7px 25px;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            transition: 0.3s ease;
+            &:hover{
+                cursor: pointer;
+                background-color: var(--orange);
+                color: var(--white-color);
+            }
+        }
+        .iconFav{
+            background-color: rgb(201, 201, 201);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            transition: 0.3s ease;
+            border-radius: 10px;
+            cursor: pointer;
+            i{
+                font-size: 1.7rem;
+                color: var(--black-color);
+                transition: 0.3s ease;
+            }
+            &:hover{
+                background-color: var(--orange);
+                i{
+                    color: var(--white-color);
+
+                }
             }
         }
     }
