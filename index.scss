@@ -315,6 +315,16 @@ header{
         h3{
             margin: 10px 0;
             letter-spacing: 3px;
+            height: 70px;
+            overflow: hidden;
+            text-align: center;
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+        }
+        p{
+            height: 70px;
+            overflow: hidden;
         }
         h4{
             color: var(--orange);
@@ -337,6 +347,7 @@ header{
             }
         }
         a{
+            cursor: pointer;
             text-decoration: none;
             color: var(--black-color);
             background-color: rgb(201, 201, 201);

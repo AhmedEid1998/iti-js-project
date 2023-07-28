@@ -36,126 +36,79 @@ document.getElementById('x').addEventListener("click", function(){
 })
 
 
+
+// $.ajax({
+//     url: "https://dummyjson.com/products",
+//     success: async function(response) {   
+
+//     }
+// })
+
+
 var data = []   
 
-$.ajax({
-    url: "https://dummyjson.com/products",
-    success: async function(response) {
+async function getData(){
+    var apiRes = await fetch('https://dummyjson.com/products');
+    var finalRes = await apiRes.json();
+    data = finalRes.products
+    console.log(data)
 
-       var finalRes = await response
-    //    console.log(response)
-       data = await finalRes
-        console.log(data.products)
+    var cartoona = ``
+    for(var i = 0; i < data.length; i++){
 
-        var cartoona = ``
-        for(var i = 0; i < 5; i++){
-    
-            cartoona += `
-            <div >
-                <div class="item">
-                    <div class="imgs">
-                        <img class="thumbnail" src="${data[i].thumbnail}"> 
-                        <div class="others">
-                            <div class="favourit">
-                                <i class="fa-solid fa-heart"></i>
-                            </div>
-                            <div class="view">
-                                <i class="fa-solid fa-eye"></i>
-                            </div>
-                            <div class="details">
-                                <i class="fa-solid fa-share"></i>
-                            </div>
+        cartoona += `
+        <div class="col-lg-3 mb-3">
+            <div class="item">
+                <div class="imgs">
+                    <img class="thumbnail w-100" src="${data[i].thumbnail}">
+                    <div class="others">
+                        <div class="favourit">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <div id="${data[i].id}" class="view">
+                            <i id="${data[i].id}" class="fa-solid fa-eye"></i>
+                        </div>
+                        <div class="details">
+                            <i class="fa-solid fa-share"></i>
                         </div>
                     </div>
-                    <div class="contnt">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i> 
-                        <span> (250 Reviews)</span>
-                        <h3>${data[i].title}</h3>
-                        <h4>$${data[1].price} <span>$18.99</span></h4> 
-                        <a href="">Add To Cart</a>
-                    </div>
+                </div>
+               
+                <div class="contnt">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i> 
+                    <span> (250 Reviews)</span>
+                    <h3>
+                        <span>${data[i].title}</span>
+                    </h3>
+                    <p class="w-100">${data[i].description}</p>
+                    <h4>$${data[i].price - (data[i].price /100*10)} <span>$${data[i].price}</span></h4> 
+                    <a id="${data[i].id}" class="addPro">Add To Cart</a>
                 </div>
             </div>
-            
-            `
-    
-        }
-    // document.getElementById('xxxxx').innerHTML = cartoona
-    // console.log(cartoona)
-    }})
-
-
-
-    // async function get(){
-
-    // }
-    // document.getElementById('xxxxx').innerHTML = cartoona
-    // console.log(cartoona)
-    
-//     async function getData(){
-//         var apiRes = await fetch('https://dummyjson.com/products');
-//         var finalRes = await apiRes.json();
-//         console.log(finalRes.products)
-//         data = await finalRes.products
-
-//         var cartoona = ``
-//         for(var i = 0; i < 5; i++){
-    
-//             cartoona += `
-//             <div >
-//                 <div class="item">
-//                     <div class="imgs">
-//                         <img class="thumbnail" src="${data[i].thumbnail}"> 
-//                         <div class="others">
-//                             <div class="favourit">
-//                                 <i class="fa-solid fa-heart"></i>
-//                             </div>
-//                             <div class="view">
-//                                 <i class="fa-solid fa-eye"></i>
-//                             </div>
-//                             <div class="details">
-//                                 <i class="fa-solid fa-share"></i>
-//                             </div>
-//                         </div>
-//                     </div>
-//                     <div class="contnt">
-//                         <i class="fa-solid fa-star"></i>
-//                         <i class="fa-solid fa-star"></i>
-//                         <i class="fa-solid fa-star"></i>
-//                         <i class="fa-solid fa-star"></i>
-//                         <i class="fa-regular fa-star"></i> 
-//                         <span> (250 Reviews)</span>
-//                         <h3>${data[i].title}</h3>
-//                         <h4>$${data[1].price} <span>$18.99</span></h4> 
-//                         <a href="">Add To Cart</a>
-//                     </div>
-//                 </div>
-//             </div>
-            
-//             `
-    
-//         }
-//     document.getElementById('xxxxx').innerHTML = cartoona
-//     console.log(cartoona)
-
-// }
-//  getData()
+            </div>
+        `
+    }
+    document.getElementById('allPros').innerHTML = cartoona
+    slideImages()
+    allProDisplayPopUp()
+    sendIdToCart()
+}
+ getData()
 
 var popUp = document.querySelector('.popUp')
 
-
-async function displayPro(id){
+async function displayPopUp(id){
     // popUp.style.display = 'block'
     $('.popUp').slideDown((500))
     $('.popUp').css('display','flex')
 
     var apiRes = await fetch(`https://dummyjson.com/products/${id}`);
     var product = await apiRes.json();
-    console.log(product)
+    // console.log(product)
     // data = await finalRes.products
     // console.log(data)
 
@@ -230,8 +183,6 @@ function hidePro(){
     $('.popUp').css('display','flex')
 }
 
-
-
 function slideImages(){
 
     var crntImgList = document.querySelectorAll('.crntImg')
@@ -250,47 +201,60 @@ function x(event){
     console.log(event.target.id)
 }
 
-// addBtn.addEventListener('click',function(){
-//     console.log('hello')
-// })
+
 // localStorage.removeItem('cartIds')
 var arrCartIds = []
-if(localStorage.getItem('cartIds') != null){
-    var arr = localStorage.getItem('cartIds')
-    arrCartIds = JSON.parse(arr)
-    // console.log(arrCartIds)
+if('cartIds' in localStorage){
+    arrCartIds = JSON.parse(localStorage.getItem('cartIds'))
+    console.log(arrCartIds)
 }else{
     arrCartIds = []
+    console.log(arrCartIds)
 }
+
 function sendIdToCart(){
     var addBtn = document.querySelectorAll('.addPro')
+    // console.log(addBtn.length)
     for(var i=0; i<addBtn.length; i++){
-        
-        // console.log(addBtn[i])
+
         addBtn[i].addEventListener('click', function(e){
             var productsId = e.target.id
+            if('cartIds' in localStorage){
+                arrCartIds = JSON.parse( localStorage.getItem('cartIds'))
 
-            if(arrCartIds.length == null){
-                for(var i=0; i<arrCartIds.length; i++){
-                    // if(productsId == arrCartIds[i]){
-                    //     console.log('mawgood')
-                    // }else{
-                        
-                    //     arrCartIds.push(productsId)
-                    //     localStorage.setItem('cartIds', JSON.stringify(arrCartIds))
-                    // }
-                    // console.log(arrCartIds.length) 
-                    console.log('zerooooo') 
+                if(arrCartIds.includes(productsId)){
+                    console.log('mawgood')
+                    alert('This product already in cart')
+                }else{
+                    arrCartIds.push(productsId)
+                    localStorage.setItem('cartIds', JSON.stringify(arrCartIds))
+                    console.log('mesh mawgood')
+                    alert('Done')
+
                 }
             }else{
-                console.log('mesh zero')
+                arrCartIds.push(productsId)
+                localStorage.setItem('cartIds', JSON.stringify(arrCartIds))
+                alert('Done')
             }
-
-            // console.log(arrCartIds)
-            // var imgSrc = e.target.getAttribute('src')
-            // thumbnail.setAttribute('src', imgSrc)  
+            console.log(arrCartIds)  
         })
     }
 
 }
-sendIdToCart()
+
+
+function allProDisplayPopUp(){
+    
+    var view = document.querySelectorAll('.view')
+    console.log(view.length)
+
+    for(var i=0; i<view.length; i++){
+        view[i].addEventListener('click', function(e){
+            // console.log(e.target.id)
+            var proId = e.target.id
+            console.log(proId)
+            displayPopUp(proId)
+        })
+    }
+}

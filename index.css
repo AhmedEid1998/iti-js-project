@@ -305,6 +305,13 @@ header .menu .menu-list .list a:hover {
 .item .contnt h3 {
   margin: 10px 0;
   letter-spacing: 3px;
+  height: 70px;
+  overflow: hidden;
+  text-align: center;
+}
+.item .contnt p {
+  height: 70px;
+  overflow: hidden;
 }
 .item .contnt h4 {
   color: var(--orange);
@@ -327,6 +334,7 @@ header .menu .menu-list .list a:hover {
   rotate: -8deg;
 }
 .item .contnt a {
+  cursor: pointer;
   text-decoration: none;
   color: var(--black-color);
   background-color: rgb(201, 201, 201);
