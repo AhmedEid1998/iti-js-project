@@ -40,9 +40,10 @@ nav{
     background-color: var(--light-color);
     color: white;
     border-bottom: solid 1px gray;
-    margin-top: 20px;
+    margin-top: 10px !important;
     padding: 10px 0;
     position: fixed;
+    top: 0;
     right: 0;
     left: 0;
     z-index: 9;
@@ -132,16 +133,18 @@ header{
             margin-top: 30px;
         }
         a{
-            background-color: var(--orange);
-            border: solid 1px var(--orange);
+            cursor: pointer;
             text-decoration: none;
-            padding: 10px 15px;
+            color: var(--black-color);
+            background-color: rgb(201, 201, 201);
+            padding: 7px 25px;
             border-radius: 20px;
-            color: white;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
             transition: 0.3s ease;
             &:hover{
-                color: white;
-                background-color: var(--black-color);
+                background-color: var(--orange);
+                color: var(--white-color);
             }
         }
         
@@ -241,6 +244,7 @@ header{
     letter-spacing: 3px;
     position: relative;
     margin-bottom: 30px;
+    text-transform: uppercase;
     span{
         color: var(--orange);
     }
@@ -257,6 +261,7 @@ header{
 .item{
     border: solid 1px gray;
     overflow: hidden;
+    background-color: var(--light-color);
     &:hover .imgs .others{       
         right: 10px;            
     }
@@ -365,12 +370,10 @@ header{
 }
 .lastProSec{
     .owl-carousel{
-    
-    
         .owlBtn{
+            // display: none;
             background-color: var(--orange);
             margin-right: 20px !important;
-            margin-top: 50px !important;
             padding: 3px 0px;
             border: solid 1px var(--orange);
             border-radius: 20px;
@@ -420,6 +423,65 @@ header{
                 }
             }
         }
+        .view-shop{
+            text-align: center;
+            margin-top: 20px;
+            a{
+                cursor: pointer;
+                text-decoration: none;
+                color: var(--black-color);
+                background-color: rgb(201, 201, 201);
+                padding: 7px 25px;
+                border-radius: 20px;
+                font-size: 1.1rem;
+                letter-spacing: 2px;
+                transition: 0.3s ease;
+                &:hover{
+                    background-color: var(--orange);
+                    color: var(--white-color);
+                }
+            }
+        }
+    }
+}
+.reviews{
+    .item{
+        padding: 20px;
+        .stars{
+            margin: 20px 0;
+            i{
+                color: var(--orange);
+                font-size: 1.3rem;
+            }
+        }
+        p{
+            width: 95%;
+        }
+        .user{
+            // background-color: red;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            margin-top: 30px;
+            img{
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+            }
+            div{
+                margin-left: 20px;
+                h4{
+                    margin: 30px  0 0 0;
+                }
+                p{
+                    color: gray;
+                    width: max-content;
+                }
+            }
+        }
+    }
+    .owlBtn{
+        display: none;
     }
 }
 
@@ -431,7 +493,7 @@ header{
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 99;
+    z-index: 9999;
     display: none;
     justify-content: center;
     align-items: center;
@@ -570,6 +632,76 @@ header{
     }
 
 
+}
+
+.spectial-deal{
+    margin-bottom: 50px;
+    .content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: solid 1px gray;
+        padding: 30px 10px;
+        background-color: var(--light-color);
+        .deal-image{
+            width: 50%;
+        }
+        .deal-date{
+            width: 50%;
+            text-align: center;
+            .dael-text{
+                // width: 50%;
+                margin-bottom: 40px;
+                letter-spacing: 1px;
+                h4{
+                    color: var(--orange);
+                    font-size: 1.2rem;
+                }
+                h3{
+                    letter-spacing: 2px;
+                }
+                .timer{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0 30px;
+                    .t{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        margin: 0 9px;
+                    }
+                    .ofNum{
+                        font-size: 3rem;
+                        color: var(--orange);
+                        font-weight: bolder;
+    
+                    }
+                    .ofText{
+                        font-size: 1rem;
+                        color: gray;
+                        font-size: 1rem;
+                    }
+                }
+            }
+            a{
+                cursor: pointer;
+                text-decoration: none;
+                color: var(--black-color);
+                background-color: rgb(201, 201, 201);
+                padding: 7px 25px;
+                border-radius: 20px;
+                font-size: 1.1rem;
+                letter-spacing: 2px;
+                transition: 0.3s ease;
+                &:hover{
+                    background-color: var(--orange);
+                    color: var(--white-color);
+                }
+            }
+        }
+    }
 }
 @keyframes anime {
     0%   {transform: translateY(-20px);}

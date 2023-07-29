@@ -35,9 +35,10 @@ nav {
   background-color: var(--light-color);
   color: white;
   border-bottom: solid 1px gray;
-  margin-top: 20px;
+  margin-top: 10px !important;
   padding: 10px 0;
   position: fixed;
+  top: 0;
   right: 0;
   left: 0;
   z-index: 9;
@@ -128,17 +129,19 @@ header .content h3, header .image h3 {
   margin-top: 30px;
 }
 header .content a, header .image a {
-  background-color: var(--orange);
-  border: solid 1px var(--orange);
+  cursor: pointer;
   text-decoration: none;
-  padding: 10px 15px;
+  color: var(--black-color);
+  background-color: rgb(201, 201, 201);
+  padding: 7px 25px;
   border-radius: 20px;
-  color: white;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
   transition: 0.3s ease;
 }
 header .content a:hover, header .image a:hover {
-  color: white;
-  background-color: var(--black-color);
+  background-color: var(--orange);
+  color: var(--white-color);
 }
 header .content img, header .image img {
   width: 600px;
@@ -228,6 +231,7 @@ header .menu .menu-list .list a:hover {
   letter-spacing: 3px;
   position: relative;
   margin-bottom: 30px;
+  text-transform: uppercase;
 }
 .secTitle span {
   color: var(--orange);
@@ -245,6 +249,7 @@ header .menu .menu-list .list a:hover {
 .item {
   border: solid 1px gray;
   overflow: hidden;
+  background-color: var(--light-color);
 }
 .item:hover .imgs .others {
   right: 10px;
@@ -352,7 +357,6 @@ header .menu .menu-list .list a:hover {
 .lastProSec .owl-carousel .owlBtn {
   background-color: var(--orange);
   margin-right: 20px !important;
-  margin-top: 50px !important;
   padding: 3px 0px;
   border: solid 1px var(--orange);
   border-radius: 20px;
@@ -395,6 +399,64 @@ header .menu .menu-list .list a:hover {
   border: solid 1px gray;
   border-radius: 5px;
 }
+.all-products .products .view-shop {
+  text-align: center;
+  margin-top: 20px;
+}
+.all-products .products .view-shop a {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--black-color);
+  background-color: rgb(201, 201, 201);
+  padding: 7px 25px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  transition: 0.3s ease;
+}
+.all-products .products .view-shop a:hover {
+  background-color: var(--orange);
+  color: var(--white-color);
+}
+
+.reviews .item {
+  padding: 20px;
+}
+.reviews .item .stars {
+  margin: 20px 0;
+}
+.reviews .item .stars i {
+  color: var(--orange);
+  font-size: 1.3rem;
+}
+.reviews .item p {
+  width: 95%;
+}
+.reviews .item .user {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-top: 30px;
+}
+.reviews .item .user img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.reviews .item .user div {
+  margin-left: 20px;
+}
+.reviews .item .user div h4 {
+  margin: 30px 0 0 0;
+}
+.reviews .item .user div p {
+  color: gray;
+  width: -moz-max-content;
+  width: max-content;
+}
+.reviews .owlBtn {
+  display: none;
+}
 
 .popUp {
   background-color: rgba(0, 0, 0, 0.9);
@@ -403,7 +465,7 @@ header .menu .menu-list .list a:hover {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 99;
+  z-index: 9999;
   display: none;
   justify-content: center;
   align-items: center;
@@ -531,6 +593,74 @@ header .menu .menu-list .list a:hover {
   background-color: var(--orange);
 }
 .popUp .pro-info .iconFav:hover i {
+  color: var(--white-color);
+}
+
+.spectial-deal {
+  margin-bottom: 50px;
+}
+.spectial-deal .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px gray;
+  padding: 30px 10px;
+  background-color: var(--light-color);
+}
+.spectial-deal .content .deal-image {
+  width: 50%;
+}
+.spectial-deal .content .deal-date {
+  width: 50%;
+  text-align: center;
+}
+.spectial-deal .content .deal-date .dael-text {
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+.spectial-deal .content .deal-date .dael-text h4 {
+  color: var(--orange);
+  font-size: 1.2rem;
+}
+.spectial-deal .content .deal-date .dael-text h3 {
+  letter-spacing: 2px;
+}
+.spectial-deal .content .deal-date .dael-text .timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 30px;
+}
+.spectial-deal .content .deal-date .dael-text .timer .t {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 9px;
+}
+.spectial-deal .content .deal-date .dael-text .timer .ofNum {
+  font-size: 3rem;
+  color: var(--orange);
+  font-weight: bolder;
+}
+.spectial-deal .content .deal-date .dael-text .timer .ofText {
+  font-size: 1rem;
+  color: gray;
+  font-size: 1rem;
+}
+.spectial-deal .content .deal-date a {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--black-color);
+  background-color: rgb(201, 201, 201);
+  padding: 7px 25px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  transition: 0.3s ease;
+}
+.spectial-deal .content .deal-date a:hover {
+  background-color: var(--orange);
   color: var(--white-color);
 }
 

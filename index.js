@@ -22,8 +22,17 @@ $(document).ready(function(){
         dots: true,
         // Type: Array
         // Default: [&#x27;next&#x27;,&#x27;prev&#x27;]
-
-
+        responsive: {
+            0: {
+              items: 1
+            },
+            500: {
+              items: 2
+            },
+            900: {
+              items: 3
+            }
+          },
     });
 });
 
@@ -45,8 +54,7 @@ document.getElementById('x').addEventListener("click", function(){
 // })
 
 
-var data = []   
-
+var data = []
 async function getData(){
     var apiRes = await fetch('https://dummyjson.com/products');
     var finalRes = await apiRes.json();
@@ -54,7 +62,7 @@ async function getData(){
     console.log(data)
 
     var cartoona = ``
-    for(var i = 0; i < data.length; i++){
+    for(var i = 5; i < 13; i++){
 
         cartoona += `
         <div class="col-lg-3 mb-3">
@@ -100,7 +108,6 @@ async function getData(){
  getData()
 
 var popUp = document.querySelector('.popUp')
-
 async function displayPopUp(id){
     // popUp.style.display = 'block'
     $('.popUp').slideDown((500))
@@ -197,10 +204,6 @@ function slideImages(){
     }
 }
 
-function x(event){
-    console.log(event.target.id)
-}
-
 
 // localStorage.removeItem('cartIds')
 var arrCartIds = []
@@ -258,3 +261,51 @@ function allProDisplayPopUp(){
         })
     }
 }
+
+
+// var setT = setInterval(function(){
+//     var time = new  Date()
+//     document.getElementById('time-deal').innerHTML = time.toLocaleTimeString()
+//     // document.getElementById('time-deal').innerHTML = time.toLocaleString()
+//     // document.getElementById('time-deal').innerHTML = time.toDateString()
+//     // console.log( 'now : ' + time.getTime())
+
+// }, 1000) 
+
+
+let countDate = new Date('aug 10, 2023 00:00:00').getTime();
+
+console.log( 'countDate : ' + countDate)
+function countDown(){
+
+    let now = new Date().getTime();
+	gap = countDate - now;
+    console.log( 'gap : ' + gap)
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+
+    let d = Math.floor(gap / (days));
+	let h = Math.floor((gap % (days)) / (hours));
+	let m = Math.floor((gap % (hours)) / (minutes));
+	let s = Math.floor((gap % (minutes)) / (seconds));
+
+    // console.log('days : ' + d)
+    // console.log('hours : ' + h)
+    // console.log('minutes : ' + m)
+    // console.log('seconds : ' + s)
+
+    // console.log('test : ' + Math.floor((gap % (days)) / (hours)))
+    // console.log('test : ' + (gap % (days)) / (hours) )
+
+    document.getElementById('days').innerText = d;
+    document.getElementById('hours').innerText = h;
+    document.getElementById('minutes').innerText = m;
+    document.getElementById('seconds').innerText = s;
+
+}
+
+setInterval(function(){
+    countDown()
+},1000);
