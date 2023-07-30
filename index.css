@@ -31,6 +31,57 @@ body {
   font-family: "Roboto", cursive;
 }
 
+.alrt {
+  width: 200px;
+  z-index: 999999;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  box-shadow: 0 0 20px rgb(133, 255, 133);
+  display: none;
+}
+.alrt p {
+  padding: 0;
+  margin: auto;
+  font-size: 1.5rem;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.errCartAlrt {
+  width: 300px;
+  z-index: 999999;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  box-shadow: 0 0 20px rgb(255, 133, 133);
+  display: none;
+}
+.errCartAlrt p {
+  padding: 0;
+  margin: auto;
+  font-size: 1.5rem;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.errFavAlrt {
+  width: 300px;
+  z-index: 999999;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  box-shadow: 0 0 20px rgb(255, 133, 133);
+  display: none;
+}
+.errFavAlrt p {
+  padding: 0;
+  margin: auto;
+  font-size: 1.5rem;
+  width: -moz-max-content;
+  width: max-content;
+}
+
 nav {
   background-color: var(--light-color);
   color: white;
@@ -360,7 +411,7 @@ header .menu .menu-list .list a:hover {
   padding: 3px 0px;
   border: solid 1px var(--orange);
   border-radius: 20px;
-  width: 3%;
+  width: 4%;
   font-weight: 300;
   font-size: 1.5rem;
   position: absolute;
@@ -417,45 +468,6 @@ header .menu .menu-list .list a:hover {
 .all-products .products .view-shop a:hover {
   background-color: var(--orange);
   color: var(--white-color);
-}
-
-.reviews .item {
-  padding: 20px;
-}
-.reviews .item .stars {
-  margin: 20px 0;
-}
-.reviews .item .stars i {
-  color: var(--orange);
-  font-size: 1.3rem;
-}
-.reviews .item p {
-  width: 95%;
-}
-.reviews .item .user {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  margin-top: 30px;
-}
-.reviews .item .user img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-}
-.reviews .item .user div {
-  margin-left: 20px;
-}
-.reviews .item .user div h4 {
-  margin: 30px 0 0 0;
-}
-.reviews .item .user div p {
-  color: gray;
-  width: -moz-max-content;
-  width: max-content;
-}
-.reviews .owlBtn {
-  display: none;
 }
 
 .popUp {
@@ -662,6 +674,82 @@ header .menu .menu-list .list a:hover {
 .spectial-deal .content .deal-date a:hover {
   background-color: var(--orange);
   color: var(--white-color);
+}
+
+.reviews .item {
+  padding: 20px;
+}
+.reviews .item .stars {
+  margin: 20px 0;
+}
+.reviews .item .stars i {
+  color: var(--orange);
+  font-size: 1.3rem;
+}
+.reviews .item p {
+  width: 95%;
+}
+.reviews .item .user {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-top: 30px;
+}
+.reviews .item .user img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.reviews .item .user div {
+  margin-left: 20px;
+}
+.reviews .item .user div h4 {
+  margin: 30px 0 0 0;
+}
+.reviews .item .user div p {
+  color: gray;
+  width: -moz-max-content;
+  width: max-content;
+}
+.reviews .owlBtn {
+  display: none;
+}
+
+footer {
+  margin: 20px 0;
+}
+footer .container {
+  background-color: var(--light-color);
+  padding: 20px 20px;
+  border: solid 1px gray;
+}
+footer .container h3 {
+  color: var(--orange);
+  cursor: context-menu;
+}
+footer .container ul {
+  margin-top: 10px;
+}
+footer .container ul li {
+  list-style: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  width: -moz-max-content;
+  width: max-content;
+  color: var(--white-color);
+  transition: 0.3s ease-in-out;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+}
+footer .container ul li:hover {
+  color: var(--orange);
+}
+footer .container .copRigh p {
+  text-align: center;
+  font-size: 1.4rem;
+}
+footer .container .copRigh p span {
+  color: var(--orange);
 }
 
 @keyframes anime {

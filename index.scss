@@ -36,6 +36,60 @@ body{
     font-family: 'Roboto', cursive;
 }
 
+.alrt{
+    width: 200px;
+    z-index: 999999;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    // background-color: rgb(61, 181, 61);
+    box-shadow: 0 0 20px rgb(133, 255, 133);
+    display: none;
+    p{
+        padding: 0;
+        margin: auto;
+        font-size: 1.5rem;
+        width: max-content;
+        // color: white;
+    }
+}
+
+.errCartAlrt{
+    width: 300px;
+    z-index: 999999;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    // background-color: rgb(61, 181, 61);
+    box-shadow: 0 0 20px rgb(255, 133, 133);
+    display: none;
+    p{
+        padding: 0;
+        margin: auto;
+        font-size: 1.5rem;
+        width: max-content;
+        // color: white;
+    }
+}
+
+.errFavAlrt{
+    width: 300px;
+    z-index: 999999;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    // background-color: rgb(61, 181, 61);
+    box-shadow: 0 0 20px rgb(255, 133, 133);
+    display: none;
+    p{
+        padding: 0;
+        margin: auto;
+        font-size: 1.5rem;
+        width: max-content;
+        // color: white;
+    }
+}
+
 nav{
     background-color: var(--light-color);
     color: white;
@@ -377,7 +431,7 @@ header{
             padding: 3px 0px;
             border: solid 1px var(--orange);
             border-radius: 20px;
-            width: 3%;
+            width: 4%;
             font-weight: 300;
             font-size: 1.5rem;
             position: absolute;
@@ -444,46 +498,7 @@ header{
         }
     }
 }
-.reviews{
-    .item{
-        padding: 20px;
-        .stars{
-            margin: 20px 0;
-            i{
-                color: var(--orange);
-                font-size: 1.3rem;
-            }
-        }
-        p{
-            width: 95%;
-        }
-        .user{
-            // background-color: red;
-            display: flex;
-            justify-content: start;
-            align-items: center;
-            margin-top: 30px;
-            img{
-                width: 80px;
-                height: 80px;
-                border-radius: 50%;
-            }
-            div{
-                margin-left: 20px;
-                h4{
-                    margin: 30px  0 0 0;
-                }
-                p{
-                    color: gray;
-                    width: max-content;
-                }
-            }
-        }
-    }
-    .owlBtn{
-        display: none;
-    }
-}
+
 
 .popUp{
     // background-color: rgba(0, 0, 0, 0.5);
@@ -698,6 +713,87 @@ header{
                 &:hover{
                     background-color: var(--orange);
                     color: var(--white-color);
+                }
+            }
+        }
+    }
+}
+
+.reviews{
+    .item{
+        padding: 20px;
+        .stars{
+            margin: 20px 0;
+            i{
+                color: var(--orange);
+                font-size: 1.3rem;
+            }
+        }
+        p{
+            width: 95%;
+        }
+        .user{
+            // background-color: red;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            margin-top: 30px;
+            img{
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+            }
+            div{
+                margin-left: 20px;
+                h4{
+                    margin: 30px  0 0 0;
+                }
+                p{
+                    color: gray;
+                    width: max-content;
+                }
+            }
+        }
+    }
+    .owlBtn{
+        display: none;
+    }
+}
+
+footer{
+    margin: 20px 0 ;
+    .container{
+        background-color: var(--light-color);
+        padding: 20px 20px;
+        border: solid 1px gray;
+        
+        h3{
+            color: var(--orange);
+            cursor: context-menu;
+        }
+        ul{
+            margin-top: 10px;
+            li{
+                list-style: none;
+                margin-bottom: 10px;
+                cursor: pointer;
+                width: max-content;
+                color: var(--white-color);
+                transition: 0.3s ease-in-out;
+                letter-spacing: 1px;
+                font-size: 1.2rem;
+                &:hover{
+                    color: var(--orange);
+                }
+            }
+        }
+        .copRigh{
+            p{
+                // background-color: red;
+                text-align: center;
+                font-size: 1.4rem;
+                span{
+                    color: var(--orange);
                 }
             }
         }

@@ -70,7 +70,7 @@ async function getData(){
                 <div class="imgs">
                     <img class="thumbnail w-100" src="${data[i].thumbnail}">
                     <div class="others">
-                        <div class="favourit">
+                        <div id="${data[i].id}" class="favourit favPro">
                             <i class="fa-solid fa-heart"></i>
                         </div>
                         <div id="${data[i].id}" class="view">
@@ -104,6 +104,7 @@ async function getData(){
     slideImages()
     allProDisplayPopUp()
     sendIdToCart()
+    sendIdToFavourit()
 }
  getData()
 
@@ -168,9 +169,9 @@ async function displayPopUp(id){
             <p><strong><samp>${product.stock}</samp> Pieces In Stock</strong></p>
             
             <div class="d-flex justify-content-between">
-                <a class="py-1 mt-1 mb-3">Add To Cart</a>
+                <a class="py-1 mt-1 mb-3 addPro">Add To Cart</a>
 
-                <div class="iconFav">
+                <div class="iconFav favPro">
                     <i class="fa-solid fa-heart"></i>
                 </div>
             </div>
@@ -182,14 +183,43 @@ async function displayPopUp(id){
     document.getElementById('popRow').innerHTML = proHtml
 
     slideImages()
+    sendIdToCart()
+    sendIdToFavourit()
 }
 
+//hide popup
 function hidePro(){
     // popUp.style.display = 'block'
     $('.popUp').slideUp((500))
     $('.popUp').css('display','flex')
 }
 
+function hideAlrt(){
+    $('.alrt').fadeOut((500))
+}
+function DoneAlert(){
+    // $('.alrt').css('display','flex')
+    $('.alrt').slideDown( (500), () => {
+        $('.alrt').fadeOut((1000))
+    })
+}
+
+function errCartAlert(){
+    // $('.alrt').css('display','flex')
+    $('.errCartAlrt').slideDown( (500), () => {
+        $('.errCartAlrt').fadeOut((2500))
+    })
+}
+
+function errFavAlert(){
+    // $('.alrt').css('display','flex')
+    $('.errFavAlrt').slideDown( (500), () => {
+        $('.errFavAlrt').fadeOut((2500))
+    })
+}
+
+
+//slide between product sub images in product pop up
 function slideImages(){
 
     var crntImgList = document.querySelectorAll('.crntImg')
@@ -204,8 +234,24 @@ function slideImages(){
     }
 }
 
+//popup for featured products section
+function allProDisplayPopUp(){
+    
+    var view = document.querySelectorAll('.view')
+    console.log(view.length)
 
-// localStorage.removeItem('cartIds')
+    for(var i=0; i<view.length; i++){
+        view[i].addEventListener('click', function(e){
+            // console.log(e.target.id)
+            var proId = e.target.id
+            console.log(proId)
+            displayPopUp(proId)
+        })
+    }
+}
+
+//cart functionality
+localStorage.removeItem('cartIds')
 var arrCartIds = []
 if('cartIds' in localStorage){
     arrCartIds = JSON.parse(localStorage.getItem('cartIds'))
@@ -227,18 +273,20 @@ function sendIdToCart(){
 
                 if(arrCartIds.includes(productsId)){
                     console.log('mawgood')
-                    alert('This product already in cart')
+                    // alert('This product already in cart')
+                    errCartAlert()
                 }else{
                     arrCartIds.push(productsId)
                     localStorage.setItem('cartIds', JSON.stringify(arrCartIds))
                     console.log('mesh mawgood')
-                    alert('Done')
-
+                    // alert('Done')
+                    DoneAlert()
                 }
             }else{
                 arrCartIds.push(productsId)
                 localStorage.setItem('cartIds', JSON.stringify(arrCartIds))
-                alert('Done')
+                // alert('Done')
+                DoneAlert()
             }
             console.log(arrCartIds)  
         })
@@ -246,21 +294,55 @@ function sendIdToCart(){
 
 }
 
+//favourit functionality
+localStorage.removeItem('favIds')
+var arrFavIds = []
+if('favIds' in localStorage){
+    arrFavIds = JSON.parse(localStorage.getItem('favIds'))
+    console.log( 'favourite Ids : ' + arrFavIds)
+}else{
+    arrFavIds = []
+    console.log('favourite Ids : ' + arrFavIds)
+}
 
-function allProDisplayPopUp(){
-    
-    var view = document.querySelectorAll('.view')
-    console.log(view.length)
+function sendIdToFavourit(){
+    var addBtn = document.querySelectorAll('.favPro')
+    // console.log(addBtn.length)
+    for(var i=0; i<addBtn.length; i++){
 
-    for(var i=0; i<view.length; i++){
-        view[i].addEventListener('click', function(e){
-            // console.log(e.target.id)
-            var proId = e.target.id
-            console.log(proId)
-            displayPopUp(proId)
+        addBtn[i].addEventListener('click', function(e){
+            var productsId = e.target.id
+            if('favIds' in localStorage){
+                arrFavIds = JSON.parse( localStorage.getItem('favIds'))
+
+                if(arrFavIds.includes(productsId)){
+                    console.log('mawgood')
+                    // alert('This product already in favourite')
+                    errFavAlert()
+                }else{
+                    arrFavIds.push(productsId)
+                    localStorage.setItem('favIds', JSON.stringify(arrFavIds))
+                    console.log('mesh mawgood')
+                    // alert('Done')
+                    DoneAlert()
+                }
+            }else{
+                arrFavIds.push(productsId)
+                localStorage.setItem('favIds', JSON.stringify(arrFavIds))
+                // alert('Done')
+                DoneAlert()
+            }
+            console.log(arrFavIds)  
         })
     }
+
 }
+
+
+
+
+
+
 
 
 // var setT = setInterval(function(){

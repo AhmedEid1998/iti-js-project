@@ -16,6 +16,21 @@
 </head>
 <body>
 
+    <div class="alert alert-success alrt">
+        <p>Done</p>
+        <!-- <i class="fa-solid fa-xmark" onclick="hideAlrt()"></i> -->
+    </div>
+
+    <div class="alert alert-danger errCartAlrt">
+        <p>Already in cart</p>
+        <!-- <i class="fa-solid fa-xmark" onclick="hideAlrt()"></i> -->
+    </div>
+
+    <div class="alert alert-danger errFavAlrt">
+        <p>Already in Favourite</p>
+        <!-- <i class="fa-solid fa-xmark" onclick="hideAlrt()"></i> -->
+    </div>
+
     <nav>
         <div class="container navBar">
             <h1><a href=""><span>S</span>TORE</a> </h1>
@@ -40,7 +55,10 @@
                 </li>
 
                 <li>
-                    <i class="fa-solid fa-cart-shopping"></i>
+                    <!-- <i class="fa-solid fa-cart-shopping"></i> -->
+                    <!-- <i class="fa-sharp fa-regular fa-cart-arrow-down"></i> -->
+                    <!-- <i class="fa-sharp fa-solid fa-cart-arrow-down"></i> -->
+                    <i class="fa-solid fa-cart-arrow-down"></i>
                 </li>
 
                 <li>
@@ -94,7 +112,7 @@
                         <div class="imgs">
                             <img class="thumbnail" src="https://i.dummyjson.com/data/products/1/thumbnail.jpg">
                             <div class="others">
-                                <div class="favourit">
+                                <div  id="1" class="favourit favPro">
                                     <i class="fa-solid fa-heart"></i>
                                 </div>
                                 <div class="view" onclick="displayPopUp(1)">
@@ -124,7 +142,7 @@
                         <div class="imgs">
                             <img class="thumbnail" src="https://i.dummyjson.com/data/products/2/thumbnail.jpg">
                             <div class="others">
-                                <div class="favourit">
+                                <div  id="2" class="favourit favPro">
                                     <i class="fa-solid fa-heart"></i>
                                 </div>
                                 <div class="view" onclick="displayPopUp(2)">
@@ -154,7 +172,7 @@
                         <div class="imgs">
                             <img class="thumbnail" src="https://i.dummyjson.com/data/products/3/thumbnail.jpg">
                             <div class="others">
-                                <div class="favourit">
+                                <div  id="3" class="favourit favPro">
                                     <i class="fa-solid fa-heart"></i>
                                 </div>
                                 <div class="view" onclick="displayPopUp(3)">
@@ -184,7 +202,7 @@
                         <div class="imgs">
                             <img class="thumbnail" src="https://i.dummyjson.com/data/products/4/thumbnail.jpg">
                             <div class="others">
-                                <div class="favourit">
+                                <div id="4" class="favourit favPro">
                                     <i class="fa-solid fa-heart"></i>
                                 </div>
                                 <div class="view" onclick="displayPopUp(4)">
@@ -214,7 +232,7 @@
                         <div class="imgs">
                             <img class="thumbnail" src="https://i.dummyjson.com/data/products/5/thumbnail.jpg">
                             <div class="others">
-                                <div class="favourit">
+                                <div  id="5" class="favourit favPro">
                                     <i class="fa-solid fa-heart"></i>
                                 </div>
                                 <div class="view" onclick="displayPopUp(5)">
@@ -244,7 +262,7 @@
         </div>
     </section>
 
-    <!-- All Products Section -->
+    <!-- Featured Products Section -->
     <section class="all-products">
         <div class="container">
             <h2 class="secTitle"><span>Featured</span> Products</h2> 
@@ -300,6 +318,7 @@
 
     </section>
 
+    <!-- Spectial Deal Section -->
     <section class="spectial-deal">
         <div class="container">
             <h2 class="secTitle">Speacial <span>Deal</span></h2> 
@@ -343,6 +362,7 @@
         </div>
     </section>
 
+    <!-- Customer Reviews Section -->
     <section class="reviews">
         <div class="container">
             <h2 class="secTitle">customer's <span>reviews</span></h2> 
@@ -442,6 +462,56 @@
 
     </section>
 
+    <!-- footer  -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li>Home</li>
+                        <li>Products</li>
+                        <li>Featured</li>
+                        <li>Deal</li>
+                        <li>Review</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3">
+                    <h3>Extra Links</h3>
+                    <ul>
+                        <li>Our Account</li>
+                        <li>Our Favourit</li>
+                        <li>Our Cart</li>
+                        <li>Our Order</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3">
+                    <h3>Download Links</h3>
+                    <ul>
+                        <li>Windows Store</li>
+                        <li>App Store</li>
+                        <li>Play Store</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>+123-456-789</li>
+                        <li>iti@gmail.com</li>
+                        <li>Minia, Egypt</li>
+                        <img src="images/payment.png" alt="">
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="copRigh">
+                <p>Created By <span>.Net G1</span> <i class="fa-regular fa-copyright"></i> All Right Reversed</p>
+            </div>
+        </div>
+    </footer>
+
     <div class="popUp">
         <div id="popX" class="popX" onclick="hidePro()">
             <i class="fa-solid fa-xmark"></i>
@@ -497,9 +567,7 @@
         </div>
     </div>
 
-    <footer>
-
-    </footer>
+    
 
 
     <!-- ------------- jquery -------------  -->
